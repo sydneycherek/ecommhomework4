@@ -40,13 +40,7 @@
   </div>
 </nav>
     
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Animal ID</th>
-          <th> Animal Name</th>
-       </tr>
-      </thead>
+    
         <?php
 $servername = "localhost";
 $username = "sydneych_homework3";
