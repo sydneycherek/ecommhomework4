@@ -42,8 +42,8 @@ if ($result->num_rows > 0) {
     <td><?=$row["employee_id"]?></td>
     <td><?=$row["servicetype"]?></td>
     <td>
-      <form method="post" action="enclosure-edit.php">
-        <input type="hidden" name="id" value="<?=$row["enclosure_id"]?>">
+      <form method="post" action="care-edit.php">
+        <input type="hidden" name="id" value="<?=$row["care_id"]?>">
         <input type="submit" value="Edit">
     </td>
   </tr>
