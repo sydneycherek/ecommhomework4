@@ -21,12 +21,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$iName = $_POST['aName'];
+$aName = $_POST['aName'];
 
-$sql = "insert into Animal (animalname) value (?)";
+$sql = "insert into Animal (animalname, animaltype, animalgender) values (?,?,?)";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $aName);
+    $stmt->bind_param("sss", $aName, $_POST['aType'], $_POST['aGender']);
     $stmt->execute();
 ?>
     
