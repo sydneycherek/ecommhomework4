@@ -21,12 +21,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$iName = $_POST['iName'];
+$aName = $_POST['aName'];
 
-$sql = "update Animal set animalname=? where animal_id=?";
+$sql = "update Animal set animalname=?, animaltype=?, animalgender=? where animal_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $aName, $_POST['iid']);
+    $stmt->bind_param("sssi", $aName, $_POST['aType'], $_POST['aGender'], $_POST['iid']);
     $stmt->execute();
 ?>
     
