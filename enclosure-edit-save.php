@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 }
 $tName = $_POST['tName'];
 
-$sql = "update Animal set animalname=?, animaltype=?, animalgender=? where animal_id=?";
+$sql = "update Enclosure set enclosuretype=?, enclosuresize=? where enclosure_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssi", $tName, $_POST['sType'], $_POST['iid']);
