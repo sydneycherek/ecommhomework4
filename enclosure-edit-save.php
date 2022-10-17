@@ -26,7 +26,7 @@ $tName = $_POST['tName'];
 $sql = "update Animal set animalname=?, animaltype=?, animalgender=? where animal_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssi", $tName, $_POST['sType']);
+    $stmt->bind_param("ss", $tName, $_POST['sType']);
     $stmt->execute();
 ?>
     
