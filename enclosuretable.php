@@ -44,6 +44,7 @@ if ($result->num_rows > 0) {
       <form method="post" action="enclosure-edit.php">
         <input type="hidden" name="iid" value="<?=$row["enclosure_id"]?>">
         <input type="submit" value="Edit">
+      </form>
     </td>
     <td>
       <form method="post" action="enclosure-delete-save.php">
