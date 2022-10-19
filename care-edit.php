@@ -21,7 +21,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * from Care where care_id=?";
+$sql = "SELECT care_id, animal_id, employee_id, servicetype from Care where care_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['iid']);
 $stmt->execute();
@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
 <form method="post" action="care-edit-save.php">
   <div class="mb-3">
     <label for="animal_id" class="form-label">Animal ID</label>
-    <input type="text" class="form-control" id="animal_ID" aria-describedby="idHelp" name="iName" value="<?=$row['animal_id']?>">
+    <input type="text" class="form-control" id="animal_id" aria-describedby="idHelp" name="iName" value="<?=$row['animal_id']?>">
     <div id="idHelp" class="form-text">Edit the Animal's ID who got care.</div>
   </div>
   <div class="mb-3">
