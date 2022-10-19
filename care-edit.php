@@ -33,11 +33,22 @@ if ($result->num_rows > 0) {
 ?>
 <form method="post" action="care-edit-save.php">
   <div class="mb-3">
-    <label for="animalname" class="form-label">Name</label>
-    <input type="text" class="form-control" id="animalname" aria-describedby="nameHelp" name="aName" value="<?=$row['animalname']?>">
-    <div id="nameHelp" class="form-text">Enter the Animal's name.</div>
+    <label for="animal_id" class="form-label">Animal ID</label>
+    <input type="text" class="form-control" id="animal_ID" aria-describedby="idHelp" name="iName" value="<?=$row['animal_id']?>">
+    <div id="idHelp" class="form-text">Edit the Animal's ID who got care.</div>
   </div>
-  <input type="hidden" name="iid" value="<?=$row['animal_id']?>">
+  <div class="mb-3">
+    <label for="employee_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" id="employee_id" aria-describedby="eidHelp" name="eType" value="<?=$row['employee_id']?>">
+    <div id="eidHelp" class="form-text">Edit the Employee ID who treated the Animal</div>
+  </div>
+  <div class="mb-3">
+    <label for="servicetype" class="form-label">Service Type</label>
+    <input type="text" class="form-control" id="servicetype" aria-describedby="serviceHelp" name="sType" value="<?=$row['servicetype']?>">
+    <div id="serviceHelp" class="form-text">Edit the Type of Service</div>
+  </div>
+  
+  <input type="hidden" name="iid" value="<?=$row['care_id']?>">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <?php
