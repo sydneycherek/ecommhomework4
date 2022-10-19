@@ -11,17 +11,17 @@
 <form method="post" action="care-add-save.php">
   <div class="mb-3">
     <label for="animal_id" class="form-label">Animal ID</label>
-    <input type="text" class="form-control" id="animal_ID" aria-describedby="idHelp" name="iName" value="<?=$row['animal_id']?>">
+    <input type="text" class="form-control" id="animal_ID" aria-describedby="idHelp" name="iName">
     <div id="idHelp" class="form-text">Enter the Animal's ID who got care.</div>
   </div>
   <div class="mb-3">
     <label for="employee_id" class="form-label">Employee ID</label>
-    <input type="text" class="form-control" id="employee_id" aria-describedby="eidHelp" name="eType" value="<?=$row['employee_id']?>">
+    <input type="text" class="form-control" id="employee_id" aria-describedby="eidHelp" name="eType">
     <div id="eidHelp" class="form-text">Enter the Employee ID who treated the Animal</div>
   </div>
   <div class="mb-3">
     <label for="servicetype" class="form-label">Service Type</label>
-    <input type="text" class="form-control" id="servicetype" aria-describedby="serviceHelp" name="sType" value="<?=$row['servicetype']?>">
+    <input type="text" class="form-control" id="servicetype" aria-describedby="serviceHelp" name="sType">
     <div id="serviceHelp" class="form-text">Enter the Type of Service</div>
   </div>
   
