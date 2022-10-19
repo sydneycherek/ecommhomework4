@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
     <td>
       <form method="post" action="enclosure-delete-save.php">
         <input type="hidden" name="iid" value="<?=$row["enclosure_id"]?>">
-        <input type="submit" value="Delete" class="btn" onclick="confirm('Are you sure?')" />
+        <input type="submit" value="Delete" class="btn" onclick="return confirm('Are you sure?')">
       </form>
     </td>
   </tr>
