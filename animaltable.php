@@ -66,7 +66,7 @@ $conn->close();
   </tbody>
     </table>
     <br />
-    <a href="animal-add.php" class="btn btn-primary">Add New Animal</a>
+    <a href="animal-add.php" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAnimal">Add New Animal</a>
     
     
       <!-- Modal -->
