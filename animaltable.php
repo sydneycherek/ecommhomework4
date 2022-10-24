@@ -34,9 +34,9 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Add':
-      $sqlAdd = "insert into Animal (animalname, animaltype, animalgender) value (?,?,?)";
+      $sqlAdd = "insert into Animal (animalname, animaltype, animalgender) values (?,?,?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("s", $_POST['aName']);
+      $stmtAdd->bind_param("sss", $_POST['aName'], $_POST['aType'], $_POST['aGender']) ;
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New Animal added.</div>';
       break;
