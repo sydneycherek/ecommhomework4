@@ -66,24 +66,56 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-  <tr>
-    <td><?=$row["animal_id"]?></td>
-    <td><?=$row["animalname"]?></td>
-    <td><?=$row["animaltype"]?></td>
-    <td><?=$row["animalgender"]?></td>
-    <td>
-      <form method="post" action="animal-edit.php">
-        <input type="hidden" name="iid" value="<?=$row["animal_id"]?>" />
-        <input type="submit" value="Edit" class="btn" />
-      </form>
-    </td>
-    <td>
-      <form method="post" action="animal-delete-save.php">
-        <input type="hidden" name="iid" value="<?=$row["animal_id"]?>" />
-        <input type="submit" value="Delete" class="btn" onclick="confirm('Are you sure?')" />
-      </form>
-    </td>
-  </tr>
+   <tr>
+            <td><?=$row["animal_id"]?></td>
+            <td><?=$row["animalname"]?></td>
+            <td><?=$row["animaltype"]?></td>
+            <td><?=$row["animalgender"]?></td>
+            <td>
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editAnimal<?=$row["animal_id"]?>">
+                Edit
+              </button>
+              <div class="modal fade" id="editAnimal<?=$row["animal_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editAnimal<?=$row["animal_id"]?>Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="editAnimal<?=$row["animal_id"]?>Label">Edit Animal</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="">
+                        <div class="mb-3">
+                          <label for="editAnimal<?=$row["animal_id"]?>Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="editAnimal<?=$row["animal_id"]?>Name" aria-describedby="editAnimal<?=$row["animal_id"]?>Help" name="aName" value="<?=$row['animalname']?>">
+                          <div id="editAnimal<?=$row["animal_id"]?>Help" class="form-text">Enter the Animal's name.</div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="editAnimal<?=$row["animal_id"]?>Name" class="form-label">Type</label>
+                          <input type="text" class="form-control" id="editAnimal<?=$row["animal_id"]?>Name" aria-describedby="editAnimal<?=$row["animal_id"]?>Help" name="aType" value="<?=$row['animaltype']?>">
+                          <div id="editAnimal<?=$row["animal_id"]?>Help" class="form-text">Enter the Type of Animal.</div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="editAnimal<?=$row["animal_id"]?>Name" class="form-label">Gender</label>
+                          <input type="text" class="form-control" id="editAnimal<?=$row["animal_id"]?>Name" aria-describedby="editAnimal<?=$row["animal_id"]?>Help" name="aGender" value="<?=$row['animalgender']?>">
+                          <div id="editAnimal<?=$row["animal_id"]?>Help" class="form-text">Enter the Animal's Gender.</div>
+                        </div>
+                        <input type="hidden" name="iid" value="<?=$row['animal_id']?>">
+                        <input type="hidden" name="saveType" value="Edit">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <form method="post" action="">
+                <input type="hidden" name="iid" value="<?=$row["animal_id"]?>" />
+                <input type="hidden" name="saveType" value="Delete">
+                <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
+              </form>
+            </td>
+          </tr>
 <?php
   }
 } else {
