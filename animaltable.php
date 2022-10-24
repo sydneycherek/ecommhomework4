@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     case 'Edit':
       $sqlEdit = "update Animal set animalname=?, animaltype=?, animalgender=? where animal_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("si", $_POST['aName'], $_POST['iid']);
+      $stmtEdit->bind_param("sssi", $_POST['aName'], $_POST['aType'], $_POST['aGender'], $_POST['iid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Animal edited.</div>';
       break;
