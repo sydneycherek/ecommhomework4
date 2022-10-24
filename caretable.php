@@ -29,6 +29,32 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+ 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  switch ($_POST['saveType']) {
+    case 'Add':
+      $sqlAdd = "insert into Care (animal_id, employee_id, servicetype) values (?,?,?)";
+      $stmtAdd = $conn->prepare($sqlAdd);
+      $stmtAdd->bind_param("sss", $_POST['iName'], $_POST['iid'], $_POST['sType']);
+      $stmtAdd->execute();
+      echo '<div class="alert alert-success" role="alert">New Care added.</div>';
+      break;
+    case 'Edit':
+      $sqlEdit = "update Care set animal_id=?, employee_id=?, servicetype=? where care_id=?";
+      $stmtEdit = $conn->prepare($sqlEdit);
+      $stmtEdit->bind_param("sssi", $_POST['iName'], $_POST['iid'],$_POST['sType'] $_POST['iid']);
+      $stmtEdit->execute();
+      echo '<div class="alert alert-success" role="alert">Care edited.</div>';
+      break;
+    case 'Delete':
+      $sqlDelete = "delete from Care where care_id=?";
+      $stmtDelete = $conn->prepare($sqlDelete);
+      $stmtDelete->bind_param("i", $_POST['iid']);
+      $stmtDelete->execute();
+      echo '<div class="alert alert-success" role="alert">Care deleted.</div>';
+      break;
+  }
+}
 
 $sql = "SELECT care_id, animal_id, employee_id, servicetype from Care";
 $result = $conn->query($sql);
