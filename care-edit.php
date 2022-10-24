@@ -38,9 +38,23 @@ if ($result->num_rows > 0) {
     <div id="idHelp" class="form-text">Edit the Animal's ID who got care.</div>
   </div>
   <div class="mb-3">
-    <label for="employee_id" class="form-label">Employee ID</label>
-    <input type="text" class="form-control" id="employee_id" aria-describedby="eidHelp" name="eType" value="<?=$row['employee_id']?>">
-    <div id="eidHelp" class="form-text">Edit the Employee ID who treated the Animal</div>
+    <label for="employeeList" class="form-label">Employee</label>
+<select class="form-select" aria-label="Select Employee" id="employeeList" name="iid">
+<?php
+    $EmployeeSql = "select * from Employee order by employeename";
+    $EmployeeResult = $conn->query($EmployeeSql);
+    while($EmployeeRow = $EmployeeResult->fetch_assoc()) {
+      if ($EmployeeRow['employee_id'] == $row['employee_id']) {
+        $selText = " selected";
+      } else {
+        $selText = "";
+      }
+?>
+  <option value="<?=$EmployeeRow['employee_id']?>"<?=$selText?>><?=$EmployeeRow['employeename']?></option>
+<?php
+    }
+?>
+</select>
   </div>
   <div class="mb-3">
     <label for="servicetype" class="form-label">Service Type</label>
