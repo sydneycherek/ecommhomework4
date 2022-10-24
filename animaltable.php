@@ -31,6 +31,34 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  switch ($_POST['saveType']) {
+    case 'Add':
+      $sqlAdd = "insert into Animal (animalname, animaltype, animalgender) value (?,?,?)";
+      $stmtAdd = $conn->prepare($sqlAdd);
+      $stmtAdd->bind_param("s", $_POST['aName']);
+      $stmtAdd->execute();
+      echo '<div class="alert alert-success" role="alert">New Animal added.</div>';
+      break;
+    case 'Edit':
+      $sqlEdit = "update Animal set animalname=?, animaltype=?, animalgender=? where instructor_id=?";
+      $stmtEdit = $conn->prepare($sqlEdit);
+      $stmtEdit->bind_param("si", $_POST['aName'], $_POST['iid']);
+      $stmtEdit->execute();
+      echo '<div class="alert alert-success" role="alert">Animal edited.</div>';
+      break;
+    case 'Delete':
+      $sqlDelete = "delete from Animal where animal_id=?";
+      $stmtDelete = $conn->prepare($sqlDelete);
+      $stmtDelete->bind_param("i", $_POST['iid']);
+      $stmtDelete->execute();
+      echo '<div class="alert alert-success" role="alert">Animal deleted.</div>';
+      break;
+  }
+}
+    
+    
+
 $sql = "SELECT animal_id, animalname, animaltype, animalgender from Animal";
 $result = $conn->query($sql);
 
@@ -79,7 +107,7 @@ $conn->close();
             </div>
             <div class="modal-body">
               <form method="post" action="">
-                <div class="mb-3">
+  <div class="mb-3">
     <label for="animalname" class="form-label">Name</label>
     <input type="text" class="form-control" id="animalname" aria-describedby="nameHelp" name="aName">
     <div id="nameHelp" class="form-text">Enter the Animal's name.</div>
