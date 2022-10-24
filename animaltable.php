@@ -80,10 +80,20 @@ $conn->close();
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="animalname" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="animalname" aria-describedby="nameHelp" name="aName">
-                  <div id="nameHelp" class="form-text">Enter the Animal's name.</div>
-                </div>
+    <label for="animalname" class="form-label">Name</label>
+    <input type="text" class="form-control" id="animalname" aria-describedby="nameHelp" name="aName">
+    <div id="nameHelp" class="form-text">Enter the Animal's name.</div>
+  </div>
+  <div class="mb-3">
+    <label for="animaltype" class="form-label">Type</label>
+    <input type="text" class="form-control" id="animaltype" aria-describedby="typeHelp" name="aType">
+    <div id="typeHelp" class="form-text">Enter the Type of Animal.</div>
+  </div>
+  <div class="mb-3">
+    <label for="animalgender" class="form-label">Gender</label>
+    <input type="text" class="form-control" id="animalgender" aria-describedby="genderHelp" name="aGender">
+    <div id="genderHelp" class="form-text">Enter the Gender of the Animal.</div>
+  </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
