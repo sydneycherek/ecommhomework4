@@ -67,6 +67,34 @@ $conn->close();
     </table>
     <br />
     <a href="animal-add.php" class="btn btn-primary">Add New Animal</a>
+    
+    
+      <!-- Modal -->
+      <div class="modal fade" id="addAnimal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addAnimalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addAnimalLabel">Add Animal</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="">
+                <div class="mb-3">
+                  <label for="animalname" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="animalname" aria-describedby="nameHelp" name="aName">
+                  <div id="nameHelp" class="form-text">Enter the Animal's name.</div>
+                </div>
+                <input type="hidden" name="saveType" value="Add">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>
+   
+
+
