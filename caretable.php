@@ -123,7 +123,7 @@ $conn->close();
   </tbody>
     </table>
     <br />
-    <a href="care-add.php" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAnimal">Add New Animal Care Record</a>
+    <a href="care-add.php" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCare">Add New Animal Care Record</a>
     
     <!-- Modal -->
       <div class="modal fade" id="addCare" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addCareLabel" aria-hidden="true">
