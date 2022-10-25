@@ -125,40 +125,7 @@ $conn->close();
     <br />
     <a href="care-add.php" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCare">Add New Animal Care Record</a>
     
-    <!-- Modal -->
-      <div class="modal fade" id="addCare" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addCareLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addCareLabel">Add Care</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form method="post" action="">
-  <div class="mb-3">
-    <label for="animal_id" class="form-label">Animal ID</label>
-    <input type="text" class="form-control" id="animal_id" aria-describedby="idHelp" name="iName">
-    <div id="idHelp" class="form-text">Enter the Animal's ID.</div>
-  </div>
-  <div class="mb-3">
-    <label for="employee_id" class="form-label">Employee ID</label>
-    <input type="text" class="form-control" id="employee_id" aria-describedby="eidHelp" name="eType">
-    <div id="eidHelp" class="form-text">Enter the Employee ID who cared for the Animal.</div>
-  </div>
-  <div class="mb-3">
-    <label for="servicetype" class="form-label">Service Type</label>
-    <input type="text" class="form-control" id="servicetype" aria-describedby="serviceHelp" name="sType">
-    <div id="serviceHelp" class="form-text">Enter the Type of Care the Animal Recieved.</div>
-  </div>
-                <input type="hidden" name="saveType" value="Add">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+   
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
