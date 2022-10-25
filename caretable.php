@@ -35,14 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     case 'Add':
       $sqlAdd = "insert into Care (animal_id, employee_id, servicetype) values (?,?,?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("sss", $_POST['iName'], $_POST['eiid'], $_POST['sType']);
+      $stmtAdd->bind_param("sss", $_POST['iName'], $_POST['eType'], $_POST['sType']);
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New Care added.</div>';
       break;
     case 'Edit':
       $sqlEdit = "update Care set animal_id=?, employee_id=?, servicetype=? where care_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("sssi", $_POST['iName'], $_POST['eiid'],$_POST['sType'] $_POST['iid']);
+      $stmtEdit->bind_param("sssi", $_POST['iName'], $_POST['eType'],$_POST['sType'] $_POST['iid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Care edited.</div>';
       break;
@@ -70,7 +70,7 @@ if ($result->num_rows > 0) {
     <td><?=$row["servicetype"]?></td>
     <td>
       <form method="post" action="care-edit.php">
-        <input type="hidden" name="id" value="<?=$row["care_id"]?>">
+        <input type="hidden" name="iid" value="<?=$row["care_id"]?>">
         <input type="submit" value="Edit">
       </form>
     </td>
